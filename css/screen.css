@@ -32,6 +32,8 @@ html {
   line-height: 1.5;
   font-family: sans-serif;
   box-sizing: border-box;
+  background-color: var(--global-color-back);
+  color: var(--global-color-front);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -43,6 +45,10 @@ html {
 }
 
 body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 /*
@@ -61,7 +67,6 @@ body {
 /*------------------------------------*\
 #Elements
 \*------------------------------------*/
-
 /*------------------------------------*\
 #OBJECTS
 \*------------------------------------*/
@@ -133,11 +138,39 @@ body {
 */
 
 .c-robot {
+  fill: white;
+  max-width: 300px; /* 300px = 18.75rem */
+  --c-robot-animation-duration: 0.75s;
+  --C-robot-animation-timing-function: ease-in-out;
+  --C-robot-animation-iteration-count: infinite;
+  --c-robot-animation-direction: alternate;
 }
 
 .c-robot__shadow {
+  fill: black;
+  opacity: 0.3;
 }
-
+@keyframes robotHover {
+  0% {
+    transform: translateY (2.5%);
+  }
+  100% {
+    transform: translateY (-2 0.5%);
+  }
+}
+@keyframes shadowPulse {
+  100% {
+    transform: scale (0.75);
+  }
+}
+#Shadow {
+  animation-name: shadowPulse;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transform-origin: 50% 100%;
+}
 
 /*
     Component: Controls
